@@ -329,18 +329,17 @@ Input validation will be employed to prevent errors and misuse. Furthermore, we'
 **Group Name: EpokaClubEvents**
 ## Software Architecture
 ### System Architecture:
-##### Our system architecture is based on generic layered architecture. It consists of 5
-layers:
-* Layer 1 - Consists of the Web Browser Interface itself
-* Layer 2 - Consists of the users of the web application namely the student, club president and the Admin
+##### Our system architecture is based on generic layered architecture. It consists of 5 layers:
+* Layer 1 - Consists of the Web Browser Interface itself.
+* Layer 2 - Consists of the users of the web application namely the student, club president and the Admin.
 * Layer 3 - Consists of the action each user can take in our web application, for example :
-1. Student - can view, attend and rate events
-2. Club Presidents - can create, remove , modify events as well as check event ratings
-1. Admin - can create , get , modify or remove particular data from the web application and not just events
-* Layer 4 - Consists of the DBMS itself
+1. Student - can view, attend and rate events.
+2. Club Presidents - can create, remove , modify events as well as check event ratings.
+1. Admin - can create , get , modify or remove particular data from the web application and not just events.
+* Layer 4 - Consists of the DBMS itself.
 * Layer 5 - Consists of the specified DBMS that is associated with each user from our web application, for example:
-1. Student - associated with the students, my_events and event_rating databases
-2. Club Presidents - associated with the club_presidents and events databases
+1. Student - associated with the students, my_events and event_rating databases.
+2. Club Presidents - associated with the club_presidents and events databases.
 3. Admin - associated with all the databases since the admin can change any given data.
 ###### This is what our system architecture looks like graphically :
 ![System Architecture](phase_3_images/System_Architecture.png)
@@ -361,8 +360,7 @@ actual database where the data is stored.
 ## Detailed Design
 ### Class Diagram:
 
-#### Our class types for our class diagram are the following : #(protected) , +(public) , -(private) , ~(default used in
-every class)
+#### Our class types for our class diagram are the following : #(protected) , +(public) , -(private) , ~(default used in every class)
 ##### Our application consists of 6 classes in total and they are :
 1. “**students**” class
 2. “**my_events**” class
@@ -380,7 +378,7 @@ valid.
 * The application takes the student to the homepage, where they can access different functionalities, after successful
 authentication.
 * In case of unsuccessful authentication the application informs the student to recheck their credentials in case of a
-typo of they can sign-up if they don’t have an account
+typo of they can sign-up if they don’t have an account.
 #### Check Out available Events:
 * The students request to see the list of events that are available after logging in and visiting the homepage.
 * The list of events is retrieved by the application from the database.
@@ -401,19 +399,19 @@ commenting on it.
 #### President Sign in and Managing Events:
 * To log in, the president gives their username and password.
 * The application verifies the authenticity of the president's credentials in the database if they are valid.
-* In case of unsuccessful authentication the application informs the club president to recheck their credentials in case of a type
+* In case of unsuccessful authentication the application informs the club president to recheck their credentials in case of a type.
 * After the president's authentication is successful, the application grants them access to events. From there, they
 can create, modify, and delete events.
 * The club president can also check the student rating as well as the student comments for a particular event by
-accessing the data through the database
+accessing the data through the database.
 #### Admin tasks:
 * To log in, the administrator enters their username and password.
 * The application verifies authentication using the admin credentials stored in the database if the credentials are valid.
 * In case of unsuccessful authentication the application informs the admin to recheck their credentials in case of a
-type
+type.
 * The application gives the administrator access to a number of management interfaces, including those for managing
 feedback, student information, and president information, after successful authentication.
-* The admin can decide whether to create,get,modify or delete specifed data from the application
+* The admin can decide whether to create,get,modify or delete specifed data from the application.
 #### User Exit:
 * Any user whether the student,club president or the admin makes a request to exit the application.
 * The program updates the user's session status and completes the logout procedure.
@@ -465,7 +463,7 @@ Once a student chooses to attend an event the id of the student is then saved to
 with the event id of that particular event. Once an event has finished the student can then rate this event and give his
 feedback to the event via a comment. The rating data is saved as “**rating_number**” and comment is saved as
 “**student_comment**” inside the “**event_rating**” database table which created a rating with a unique id
-(“**rating_id**”) and fetched the id of the student as well as that of the event along with the rating and comment
+(“**rating_id**”) and fetched the id of the student as well as that of the event along with the rating and comment.
 #### Club president side
 Each president is identified by his unique “**president_id**”. Each president will has his own “**club_name**”
 depending on the club that he is currently president of. The “**president_email**” and “**president_password**”
@@ -479,16 +477,14 @@ students for a particular event by “**event_id**”.
 The “**admin_username**” and “**admin_password**” are used by the administrator in order to gain access in the
 application and log in. The admin in our application is able to create,get,modify and delete any particular data from
 the database that he wants. He is able to access all of the database tables along with changing the given data for
-each one of them
+each one of them.
 ## Modeling
 ### Use Case Diagram:
-##### This is the visual representation of our use case diagram showcasing how all our users will interact with the
-system :
+##### This is the visual representation of our use case diagram showcasing how all our users will interact with the system :
 
 ![Use Case Diagram](phase_3_images/Use_Case_Diagram.png)
 ### Activity Diagrams:
-##### This is the visual representation of our activity diagram showcasing all the activities associated with all our
-users when they interact with the system :
+##### This is the visual representation of our activity diagram showcasing all the activities associated with all our users when they interact with the system :
 ![Activity Diagram](phase_3_images/Activity_Diagram.png)
 ### State Diagrams:
 ##### This are all of the states showcased in our state diagram :
