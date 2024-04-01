@@ -320,3 +320,193 @@ This is a mockup of how our web application is going to look from the students p
 ### e. Security Measures:
 
 Input validation will be employed to prevent errors and misuse. Furthermore, we'll implement password hashing, which will show a hashed version of the password rather than the real characters. Our system requires passwords to have a minimum length of 8 characters, consisting of a combination of uppercase, lowercase, digits, and symbols for security purposes. In order to increase overall security, we will also advise students to avoid information that is simple to guess, such as popular terms (password), private information (student name), and repeated patterns (1111).
+
+
+
+
+# Phase III: Software Design and Modeling
+**Submission Deadline: April 1st, 2024, 23:59 **
+**Group Name: EpokaClubEvents **
+## Software Architecture
+### System Architecture:
+#####Our system architecture is based on generic layered architecture. It consists of 5
+layers:
+* Layer 1 - Consists of the Web Browser Interface itself
+* Layer 2 - Consists of the users of the web application namely the student, club president and the Admin
+* Layer 3 - Consists of the action each user can take in our web application, for example :
+1. Student - can view, attend and rate events
+2. Club Presidents - can create, remove , modify events as well as check event ratings
+1. Admin - can create , get , modify or remove particular data from the web application and not just events
+* Layer 4 - Consists of the DBMS itself
+* Layer 5 - Consists of the specified DBMS that is associated with each user from our web application, for example:
+1. Student - associated with the students, my_events and event_rating databases
+2. Club Presidents - associated with the club_presidents and events databases
+3. Admin - associated with all the databases since the admin can change any given data.
+######This is what our system architecture looks like graphically :
+![System Architecture](phase_3_images/System_Architecture.png)
+### Component Diagram:
+#####Our component diagram consists of the following components:
+* **Users**: The President User, Admin User, and Student User are the three user types that are shown at the top.
+All three of them are able to interact with the system.
+* **Processes**: The two processes that the users interact with are the Service Requests and Authentication. The
+actions that the users initiate are handled by these processes.
+* **Server**: It is a representation of the system's host server.
+* **Service Layer**: This layer is in charge of carrying out the system's business logic.
+* **Data Layer**: This layer is responsible for storing and retrieving the data .
+* **Data Access and Database**: An element named "Data Access" connected to another element labeled
+"«database»" is located to the right of the Data Layer. They represent the system’s data access mechanism and the
+actual database where the data is stored.
+#####This is what our component diagram looks like graphically :
+![Component Diagram](phase_3_images/Component_Diagram.jpeg)
+## Detailed Design
+###Class Diagram:
+
+####Our class types for our class diagram are the following : #(protected) , +(public) , -(private) , ~(default used in
+every class)
+#####Our application consists of 6 classes in total and they are :
+1. “**students**” class
+2. “**my_events**” class
+3. “**event_rating**” class
+4. “**events**” class
+5. “**club_presidents**” class
+6. “**admin**” class
+#####Their attributes and methods are all included in the diagram below :
+![Class Diagram](phase_3_images/Class_Diagram.png)
+###Sequence Diagrams:
+####Student Sign-in and navigating the homepage:
+* To log in, the student enters their email and password.
+* The application verifies authentication by comparing the student credentials in the database if the credentials are
+valid.
+* The application takes the student to the homepage, where they can access different functionalities, after successful
+authentication.
+* In case of unsuccessful authentication the application informs the student to recheck their credentials in case of a
+typo of they can sign-up if they don’t have an account
+####Check Out available Events:
+* The students request to see the list of events that are available after logging in and visiting the homepage.
+* The list of events is retrieved by the application from the database.
+* The student is presented with the retrieved events on the event listing page.
+####Attend the following event:
+* From the event listing, the student chooses an event they want to attend.
+* By updating the database, the application registers the student for the chosen event.
+* The application verifies to the student that they have successfully registered for the event and that they have
+attended it.
+####Cancel the following event:
+* From the event listing, the student chooses an event that they no longer want to attend.
+* By updating the database, the application removes the student from the chosen event.
+* The application verifies to the user that they have successfully deregistered for the event.
+####Creating and modifying ratings:
+* After the student has attended a particular event, he can then provide his feedback by rating the event and
+commenting on it.
+* After successfully submitting the rating the user can then decide to modify a given rating or remove it entirely
+####President Sign in and Managing Events:
+* To log in, the president gives their username and password.
+* The application verifies the authenticity of the president's credentials in the database if they are valid.
+* In case of unsuccessful authentication the application informs the club president to recheck their credentials in case
+of a type
+
+* After the president's authentication is successful, the application grants them access to events. From there, they
+can create, modify, and delete events.
+* The club president can also check the student rating as well as the student comments for a particular event by
+accessing the data through the database
+####Admin tasks:
+* To log in, the administrator enters their username and password.
+* The application verifies authentication using the admin credentials stored in the database if the credentials are valid.
+* In case of unsuccessful authentication the application informs the admin to recheck their credentials in case of a
+type
+* The application gives the administrator access to a number of management interfaces, including those for managing
+feedback, student information, and president information, after successful authentication.
+* The admin can decide whether to create,get,modify or delete specifed data from the application
+####User Exit:
+* Any user whether the student,club president or the admin makes a request to exit the application.
+* The program updates the user's session status and completes the logout procedure.
+* The user receives confirmation from the application that the logout was successful.
+#####Below is a picture of our entire sequence diagram that we just explained :
+![Sequence Diagram 1](phase_3_images/Sequence_Diagram_1.png)
+![Sequence Diagram 2](phase_3_images/Sequence_Diagram_2.png)
+![Sequence Diagram 3](phase_3_images/Sequence_Diagram_3.png)
+### Database Design:
+####As the model has been shown in the previous phase , we’re going to be explaining in detail how each data in our
+application is related to one another.
+#####Firstly we show all our tables again for clarification purposes:
+1. **“students”** Table consisting of student data :
+* student_id (**Primary Key**)
+* student_name
+* student_surname
+* student_email
+* student_password
+2. **“club_presidents”** Table consisting of club president data :
+* president_id (**Primary Key**)
+* club_name
+* president_email
+* president_password
+3. **“events”** Table consisting of event related data :
+* event_id (**Primary Key**)
+* event_title
+* event_description
+* event_image
+* event_room
+* event_date
+
+* event_quotas
+* president_id (**Foreign Key**)
+4. **“my_events”** Table consisting of :
+* student_id (**Foreign Key**)
+* event_id (**Foreign Key**)
+5. **“event_rating”** Table consisting of :
+* rating_id (**Primary Key**)
+* rating_number
+* student_comment
+* student_id (**Foreign Key**)
+* event_id (**Foreign Key**)
+6. **“admin”** Table consisting of administrator data :
+* admin_username
+* admin_password
+####Student Side
+Each student once registered in the website is identified by his unique “**student_id**”. The “**student_email**”
+and “**student_password**” data are reused every time the student wants to log-in. The “**student_id**” for a
+particular student is fetched every time a student wants to attend a particular event.
+Once a student chooses to attend an event the id of the student is then saved to the database “**my_events**” along
+with the event id of that particular event. Once an event has finished the student can then rate this event and give his
+feedback to the event via a comment. The rating data is saved as “**rating_number**” and comment is saved as
+“**student_comment**” inside the “**event_rating**” database table which created a rating with a unique id
+(“**rating_id**”) and fetched the id of the student as well as that of the event along with the rating and comment
+####Club president side
+Each president is identified by his unique “**president_id**”. Each president will has his own “**club_name**”
+depending on the club that he is currently president of. The “**president_email**” and “**president_password**”
+data are used every time the president wants to log-in.
+The club president is able to create, modify or remove events. Each event created by the club president is identified
+by its unique “**event_id**”. The id of the club president “**president_id**” is also stored in the “**event**” database
+table , since the presidents are the ones that create the events in the first place.
+After an event has finished the club president is then able to check the ratings and comments provided by the
+students for a particular event by “**event_id**”.
+####Admin side
+The “**admin_username**” and “**admin_password**” are used by the administrator in order to gain access in the
+application and log in. The admin in our application is able to create,get,modify and delete any particular data from
+the database that he wants. He is able to access all of the database tables along with changing the given data for
+each one of them
+##Modeling
+###Use Case Diagram:
+#####This is the visual representation of our use case diagram showcasing how all our users will interact with the
+system :
+
+![Use Case Diagram](phase_3_images/Use_Case_Diagram.png)
+###Activity Diagrams:
+#####This is the visual representation of our activity diagram showcasing all the activities associated with all our
+users when they interact with the system :
+![Activity Diagram](phase_3_images/Activity_Diagram.png)
+###State Diagrams:
+#####This are all of the states showcased in our state diagram :
+1. **Checking** - The system checks the database for a selected type of data.
+2. **Display** - The system displays the required information after initial check.
+3. **Attend** - Student has pressed the attendance button.
+4. **Enabled** - Student button for attendance is available.
+5. **Disabled** - Student button for attendance is unavailable.
+6. **Message** - Displays a message to the user.
+7. **Waiting** - A form / event is waiting for initial/further input from a user.
+8. **Rate** - The student has rated an event.
+9. **Create **- System initiates a create operation , creating a new instance of a specific data.
+10. **Modify** - A specified data has been modified in the system.
+11. **Remove** - A specified data is removed from the system.
+#####This is the visual representation of our state diagram showcasing all the state of
+activities when users interact with the system :
+![State Diagram](phase_3_images/State_Diagram.png)
