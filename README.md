@@ -501,3 +501,119 @@ each one of them.
 11. **Remove** - A specified data is removed from the system.
 ##### This is the visual representation of our state diagram showcasing all the state of activities when users interact with the system :
 ![State Diagram](phase_3_images/State_Diagram.png)
+
+
+# Phase IV: Software Testing
+
+#### Submission Deadline: April 1st, 2024, 23:59 Group Name: EpokaClubEvents
+
+## 1.Introduction to Testing:
+
+
+* Definition of software testing
+
+Software testing is an essential development process that evaluates software to find errors or faults. These might be minor cosmetic bugs or serious problems that compromise functionality. Making sure that the program satisfies the requirements and operates as intended is the main objective. Software testing is a methodical process that uses approaches and procedures including functional, performance, security, automated, and manual testing to find bugs or inconsistencies in a program or application and guarantee its accuracy and dependability.
+
+* Importance of testing in software development
+
+In software development, testing is an essential stage that guarantees quality assurance, dependability, risk reduction, cost effectiveness, and customer satisfaction. By assisting in the early identification and correction of bugs, it lowers the probability of failures. Quality control ensures us that the finished product is up to stakeholder expectations. Proactive testing minimizes the likelihood of software failure and lowers expenses by cutting down on rework and troubleshooting. By guaranteeing that the software satisfies the required functionality, usability, and performance criteria, it also raises customer happiness by enhancing user loyalty and experience. Testing is therefore an essential phase in the development of software.
+
+## 2.Purpose of Testing:
+
+Testing is used for ensuring that the software components are up to standard of what the stakeholders expect and what the customers want.
+
+Testing software serves 5 main functions: 
+
+1. Identifying issues early - it is important to identify bugs early so that they can be fixed in a more cost effective fashion. Doing otherwise can result in additional costs being incurred.
+2. Validating software components - testing that all components of a given piece of software work properly is very important, like with the first point finding issues early can make fixing them a lot cheaper.
+3. Quality assurance - making sure that the product has a certain quality level is very important to ensure stakeholders satisfaction. Achieving the desired level of quality cannot be done without testing the software regularly.
+4. Risk mitigation - checking for security vulnerabilities, performance bottlenecks and compatibility issues can lower the cost of fixing these issues
+5. Building confidence - by improving the product we ensure the trust that the stakeholders have for the product.
+
+## 3.Focus on Testing a Single Component:
+
+The component that we are going to test for our database is our signup function.
+
+1. **Role:** The signup function manages our user registration in our project. It is an essential component of the system because it allows for new students to join. 
+2. **Importance of testing:**
+* Correctness: It is important to ensure that the signup process runs well. Any faults or issues may prevent students from registering.
+* Security: Properly validating input such as preventing SQL injection is critical to protect against security vulnerabilities.
+* Edge Cases: Testing helps to identify edge circumstances such as wrong email or password formats.
+3. **Complexity:** The signup function may be complicated due to input validation and database interactions.
+4. **Importance :** The signup is of great importance to our project as it is the first interaction the user has with our website as well as the bridge between the interface of our entire club events platform.
+
+## 4.Preparing Test Cases:
+
+1. **Valid inputs** - In order to prepare a test case for a normal valid input, we have to first define the bounds and specifications of the user inputs. Such a test can include a sign up request where all the data falls within the bounds of the variable specifications, such as character limits and input formatting.
+2. **Empty body** - This error occurs when we expect to receive certain data, but due to various reasons the data has not been received. The reasons for missing values is usually the user not inputting anything and clicking the sign up/sign in button, but it could also be a more severe software issue, testing for this allows us to diagnose a potential problem before the product launches.
+3. **Missing values** -  It occurs when we have received some of the data but other crucial parts of the data are missing, this error also typically occurs due to user error, but testing for this is very important to potentially diagnose a more severe problem with missing data or to adequately alert the user of incomplete input of information.
+4. **Invalid password format** - An invalid password test is very important for user security, it can show us if the application requirements are being properly enforced. Things that can cause a password test to be invalid is the password being too short, which would be a bounds error. It can also be a case of the password lacking numbers, capital letters or special characters which would fall into a formatting error.
+5. **Invalid email format** - This test looks for potential problems with email formatting, it could be the email address being too long, the email not following proper formatting for a standard email address. It is very important that email verification be accurate in order to properly verify each user that will have access to all the features of the website.
+
+## 5.Choosing Testing Frameworks:
+We are going to be using the jest framework of react in order to initiate our testing. We chose this framework because of its ease, speed and many built in features like snapshot testing and mocking.
+
+The process of jest into 5 parts:
+1. **Installing jest** - We can easily install jest using npm(Node Package Manager) and running the following command: npm install --save-dev jest
+
+2. **Configuring jest** - For most projects, this one included, jest works right out of the box, though of course this can vary depending on the project specifications. In order to configure jest you need to configure a .js file like the following: 
+```
+  module.exports = {
+  testEnvironment: 'jsdom',
+  // Add any additional configuration options here 
+  };
+```
+
+3. **Writing test** - Jest supports a myriad of tests including unit tests, integration tests and snapshot tests. We will go into more detail about writing test cases in general and specific test cases that we want to perform on our platform in the following section.
+
+4. **Running test** - After we run Jest, the tests will automatically give us feedback about the test results, potential errors that might have occurred or a notification if the test returned without any errors. We will go into further detail in section 7 about the results of the testing we have performed on our product.
+
+5. **Continuous integration** - Jest can easily be integrated into a continuous integration pipeline, by doing this we allow ourselves to automatically run tests whenever we want to using jest before pushing code into the repository.
+
+## 6.Writing Test Code:
+
+Our steps on how to write our code : 
+1. We declare our test function
+2. We create a mock object where we hold our student data
+3. We mock the database query to return the row of student data
+4. We make a post request and include assertions to make sure the request was successful
+5. We mock a get request , and afterwards we make the get request and add assertions to check if request was successful
+
+*Below we have the written codes for the tests made for this phase*
+
+1. Valid inputs 
+![test1](phase_4_images/test1.png)
+2. Empty body
+![test2](phase_4_images/test2.png)
+3. Missing values
+![test3](phase_4_images/test3.png)
+4. Invalid password
+![test4](phase_4_images/test4.png)
+5. Invalid email data
+![test5](phase_4_images/test5.png)
+
+## 7.Running Tests:
+1. We firstly run our test by using npm.start
+2. We then check  the results:
+* Passing: All tests succeeded.
+* Failing: One or more tests have failed.
+3. We check the failed tests and make the necessary changes.
+4. After solving the issues, we rerun the tests to ensure that they pass.
+5. Document the test results, fixes, and any necessary updates for stakeholders.
+
+*Here are the test results for all our tests made:*
+
+1. Valid inputs
+![test1-1](phase_4_images/test1-1.png)
+2. Empty body
+![test2-1](phase_4_images/test2-1.png)
+3. Missing values
+![test3-1](phase_4_images/test3-1.png)
+4. Invalid password format
+![test4-1](phase_4_images/test4-1.png)
+5. Invalid email data
+![test5-1](phase_4_images/test5-1.png)
+
+## 8.Test Coverage:
+
+Test coverage is a critical aspect of software testing, encompassing functions, statements, branch coverage, and condition coverage. Achieving high test coverage is vital for detecting bugs early, reducing risk, improving code quality, refactoring confidence, and documentation. It ensures that all parts of the application are tested, reducing the risk of pushing faulty software to production. It also encourages developers to write testable code, leading to better design and higher code quality. High test coverage also serves as a form of documentation, demonstrating how the code should work and its expected behavior. Ultimately, high test coverage ensures the software behaves as expected under different scenarios and inputs, resulting in a more efficient and effective testing process.
