@@ -505,7 +505,7 @@ each one of them.
 
 # Phase IV: Software Testing
 
-#### Submission Deadline: April 1st, 2024, 23:59 Group Name: EpokaClubEvents
+#### Submission Deadline: May 6th, 2024, 23:59 Group Name: EpokaClubEvents
 
 ## 1.Introduction to Testing:
 
