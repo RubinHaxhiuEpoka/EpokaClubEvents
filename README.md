@@ -583,12 +583,16 @@ Our steps on how to write our code :
 
 1. Valid inputs 
 ![test1](phase_4_images/test1.png)
+
 2. Empty body
 ![test2](phase_4_images/test2.png)
+
 3. Missing values
 ![test3](phase_4_images/test3.png)
+
 4. Invalid password
 ![test4](phase_4_images/test4.png)
+
 5. Invalid email data
 ![test5](phase_4_images/test5.png)
 
@@ -605,12 +609,16 @@ Our steps on how to write our code :
 
 1. Valid inputs
 ![test1-1](phase_4_images/test1-1.png)
+
 2. Empty body
 ![test2-1](phase_4_images/test2-1.png)
+
 3. Missing values
 ![test3-1](phase_4_images/test3-1.png)
+
 4. Invalid password format
 ![test4-1](phase_4_images/test4-1.png)
+
 5. Invalid email data
 ![test5-1](phase_4_images/test5-1.png)
 
