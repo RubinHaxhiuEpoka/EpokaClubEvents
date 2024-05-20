@@ -1,0 +1,103 @@
+.content-table {
+  font-family: sans-serif;
+  border-collapse: collapse;
+  margin: 25px 0;
+  min-width: 50px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+  
+    thead{
+      
+
+        tr{
+            background-color: #009879;
+            color: #fff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+    }
+
+    th{
+      padding: 12px 15px;
+    }
+    
+    td{
+      padding: 12px 15px;
+    }
+
+  tbody {
+        tr {
+          border-bottom: 1px solid #dddddd;
+          &:nth-of-type(even) {
+            background-color: #f3f3f3;
+          }
+          &:last-of-type {
+            border-bottom: 2px solid #009879;
+          }
+          &.active-row {
+            font-weight: bold;
+            color: #009879;
+          }
+        }
+      }
+}
+
+.btn-style-delete{
+  border-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background-color: #ff77a4;
+  padding: 5px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  &:hover{
+    background-color: #ff238D;
+    color: #fff;
+  }
+}
+
+.btn-style-edit{
+  border-style: none;
+  color:#fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background-color: #442540;
+  padding: 5px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  &:hover{
+    background-color: #0a2540;
+  }
+
+}
+
+.btn-style-post{
+  border-style: none;
+  color:#fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background-color: #ff0000d5;
+  padding: 5px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  &:hover{
+    background-color: #720202;
+  }
+
+}
+
+.edit-delete{
+  content-visibility: hidden;
+}
+
+.admin-event-img{
+    width: 50px;
+    height: 50px;
+}
+
+.table-all{
+  margin-left: 15px;
+}
