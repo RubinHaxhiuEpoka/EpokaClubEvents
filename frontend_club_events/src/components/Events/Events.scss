@@ -1,0 +1,179 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background-color: #fcf5eb;
+}
+.card-container{
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+
+    .atnd-btn {
+        font-weight: bold;
+        background-color: #4f46e5;
+        color: white; 
+        border: 1px solid; 
+        padding: 3px 2px; 
+        text-align: center; 
+        text-decoration: none; 
+        display: inline-block; 
+        font-size: 16px; 
+        margin: 10px 8px; 
+        cursor: pointer; 
+        border-radius: 12px; 
+        font-family: 'Lato', sans-serif;
+        font-size: bold;
+        transition: background-color 0.3s ease;
+        width: 45%;
+        box-shadow: 2px 2px 3px rgba($color: #000000, $alpha: 0.3);
+        
+        &:hover{
+             background-color: #4f4aa7;
+        }
+    }
+}
+.card{
+    width: 325px;
+    background-color: #ffe4c4;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 6px 8px rgba(0,0,0,0.2);
+    margin: 20px;
+
+    img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    }
+
+.card-content{
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    height: 202px;
+    overflow: auto;
+    
+    h3{
+        color: #96A0AA;
+        font-weight: 500;
+        font-size: 28px;
+        margin-bottom: 8px;
+        font-family: 'Lato';
+    }
+    
+    h4 { 
+        display: inline-block;
+        font-family: 'Lato', sans-serif;
+        font-size: 10px;
+        border-radius: 2px;
+        margin: 2px 0;
+        border-radius: 4px;
+    }
+    h5 {
+        font-family: 'Lato', sans-serif;
+        font-size: 10px;
+    }
+
+    h6 {
+       display: inline-block;
+        font-family: 'Lato', sans-serif;
+        }
+   
+    p{
+        color: #666;
+        font-size: 15px;
+        line-height: 1.3;
+    }
+
+    .buton_styling{
+        background-color: #ff774a;
+        color: white; 
+        border: 1px solid; 
+        padding: 3px 20px; 
+        text-align: center; 
+        text-decoration: none; 
+        display: inline-block; 
+        font-size: 16px; 
+        margin: 10px 1px; 
+        cursor: pointer; 
+        border-radius: 12px; 
+        font-family: 'Lato', sans-serif;
+        font-size: bold;
+        transition: background-color 0.3s ease;
+        width: 45%;
+        
+        &.red{
+            background-color: #df2c14;
+            &:hover{
+                background-color: rgb(139, 1, 1);
+            }
+        }
+        
+        &.green{
+            background-color: #ff774a;
+            &:hover{
+                background-color: #ff7700;
+               box-shadow:  0px 2px 3px rgba(0,0,0,0.2);
+            }
+    }
+}
+
+    .attend-button { 
+        font-family: 'Lato', sans-serif; 
+        box-shadow: 2px 3px rgba(0,0,0,0.1);
+        font-size: 18px;
+        font-weight: 700;
+        border: solid 1px;
+        border-radius: 28px;
+        padding: 5px 20px; 
+        width: 60%;
+        margin-bottom: 8px;
+        border: none;
+    
+        cursor: pointer;
+        background-color: rgb(60, 204, 125);
+        &:hover{
+            background-color: rgb(0, 180, 0);
+
+        }
+
+    }
+    .attending {
+        background-color: #df2c14;
+        &:hover{
+            background-color: rgb(177, 0, 0);
+        }
+    }
+
+    .feedback-span{
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        width: auto;
+    }
+
+    .feedback-description{
+        display: flex;
+        justify-content: space-between;
+    }
+} 
+
+
+.rn{
+    text-align: center;
+    padding-bottom: 25px;
+    font-weight: bold;
+}
+
+.form-feedback{
+    display: flex;
+    justify-content: space-between;
+}
